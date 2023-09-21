@@ -12,12 +12,12 @@ module MoodleRb
     end
 
     def list_course_competencies(course_id)
-      response = self.class.get(
+      response = self.class.post(
         '/webservice/rest/server.php',
         {
           :query => query_hash('core_competency_list_course_competencies', token),
           :body => {
-            :courseid => course_id
+            :id => course_id
           }
         }.merge(query_options)
       )

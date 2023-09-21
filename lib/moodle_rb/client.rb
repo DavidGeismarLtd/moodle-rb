@@ -23,6 +23,10 @@ module MoodleRb
       response.parsed_response
     end
 
+    def competencies
+      MoodleRb::Competencies.new(token, url, query_options)
+    end
+
     def courses
       MoodleRb::Courses.new(token, url, query_options)
     end

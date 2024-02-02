@@ -50,5 +50,9 @@ module MoodleRb
     def grades
       MoodleRb::Grades.new(token, url, query_options)
     end
+
+    def tenants
+      MoodleRb::Tenants.new(token, url, query_options)
+    end
   end
 end

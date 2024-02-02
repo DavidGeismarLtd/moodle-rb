@@ -10,6 +10,7 @@ require 'moodle_rb/enrolments'
 require 'moodle_rb/grades'
 require 'moodle_rb/users'
 require 'moodle_rb/groups'
+require 'moodle_rb/tenants'
 
 module MoodleRb
   def self.new(token, url, query_options = {})

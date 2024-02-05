@@ -23,7 +23,7 @@ module MoodleRb
     end
 
     def allocate_users(params)
-      response = self.class.get(
+      response = self.class.post(
         '/webservice/rest/server.php',
         {
           :query => query_hash('tool_tenant_allocate_users', token),
@@ -36,7 +36,6 @@ module MoodleRb
       check_for_errors(response)
       response.parsed_response
     end
-
     # required params:
     # name
     # optional params:

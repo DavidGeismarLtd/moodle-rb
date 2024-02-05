@@ -28,12 +28,8 @@ module MoodleRb
         {
           :query => query_hash('tool_tenant_allocate_users', token),
           :body => {
-            :members => {
-              '0' => {
-                :userid => params[:user_id],
-                :tenantid => params[:tenant_id]
-              }
-            }
+            'allocations[0][userid]' => params[:user_id].to_i,
+            'allocations[0][tenantid]' => params[:tenant_id].to_i
           }
         }.merge(query_options)
       )

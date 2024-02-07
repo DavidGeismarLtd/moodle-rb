@@ -22,6 +22,54 @@ module MoodleRb
       response.parsed_response
     end
 
+    def suspend_users(params)
+      body = {}
+      params[:user_ids].each_with_index do |id, index|
+        body["userids[#{index}]"] = id
+      end
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('tool_tenant_suspend_users', token),
+          :body => body
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response
+    end
+
+    def unsuspend_users(params)
+      body = {}
+      params[:user_ids].each_with_index do |id, index|
+        body["userids[#{index}]"] = id
+      end
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('tool_tenant_unsuspend_users', token),
+          :body => body
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response
+    end
+
+    def delete_users(params)
+      body = {}
+      params[:user_ids].each_with_index do |id, index|
+        body["userids[#{index}]"] = id
+      end
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('tool_tenant_delete_users', token),
+          :body => body
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response
+    end
+
     def allocate_users(params)
       response = self.class.post(
         '/webservice/rest/server.php',
